@@ -22,19 +22,18 @@ public class Player : MonoBehaviour
     {
         ChangeWeapon(_weapons[_currentWeaponNumber]);
         _currentHealth = _health;
-        _currentWeapon.Reset();
     }
 
     private void Update()
     {
         if (Input.GetMouseButton(0))
         {
-            _currentWeapon.Shot(_shootPoint, Time.time);
+            _currentWeapon.StartShoting(_shootPoint, Time.time);
         }
 
         if (Input.GetMouseButtonUp(0))
         {
-            _currentWeapon.StopShot(Time.time); 
+            _currentWeapon.StopShooting(Time.time); 
         }
     }
 
