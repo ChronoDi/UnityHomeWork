@@ -20,7 +20,7 @@ public class Pistol : Weapon
         }
     }
 
-    public override void StopShooting(float stopShootingTime)
+    public override void StopShooting()
     {
         IsCanShoot = true;
     }

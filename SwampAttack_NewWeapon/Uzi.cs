@@ -23,5 +23,5 @@ public class Uzi : Weapon
         }
     }
 
-    public override void StopShooting(float stopShootingTime) { }
+    public override void StopShooting() { }
 }

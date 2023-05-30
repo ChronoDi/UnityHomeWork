@@ -19,7 +19,7 @@ public abstract class Weapon : MonoBehaviour
     public bool IsBuyed => _isBuyed;
 
     public abstract void StartShoting(Transform shootPoint, float shootingTime);
-    public abstract void StopShooting(float stopShootingTime);
+    public abstract void StopShooting();
     public abstract void Reset();
 
     public void Buy()
