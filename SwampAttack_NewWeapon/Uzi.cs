@@ -7,20 +7,20 @@ public class Uzi : Weapon
     public override void Reset()
     {
         ShootTime = 0;
-        IsCanShoot = true;
     }
 
     public override void StartShoting(Transform shootPoint, float shootingTime)
     {
-        if (IsCanShoot)
+        if (shootingTime < Delay)
         {
-            Instantiate(Bullet, shootPoint.position, Quaternion.identity);
-            ShootTime = shootingTime;
-            IsCanShoot = false;
+            shootingTime += Delay;
         }
 
         if (shootingTime - ShootTime >= Delay)
-            IsCanShoot = true;
+        {
+            Instantiate(Bullet, shootPoint.position, Quaternion.identity);
+            ShootTime = shootingTime;
+        }
     }
 
     public override void StopShooting(float stopShootingTime) { }

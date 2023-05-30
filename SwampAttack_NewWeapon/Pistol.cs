@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class Pistol : Weapon
 {
+
     public override void StartShoting(Transform shootPoint, float shootingTime)
     {
+        if (shootingTime < Delay) 
+        {
+            shootingTime += Delay;
+        }
 
-        if (IsCanShoot)
+        if (IsCanShoot && shootingTime - ShootTime >= Delay)
         {
             ShootTime = shootingTime;
             Instantiate(Bullet, shootPoint.position, Quaternion.identity);
@@ -17,10 +22,7 @@ public class Pistol : Weapon
 
     public override void StopShooting(float stopShootingTime)
     {
-        if (stopShootingTime - ShootTime >= Delay)
-        {
-            IsCanShoot = true;
-        }
+        IsCanShoot = true;
     }
 
     public override void Reset()
