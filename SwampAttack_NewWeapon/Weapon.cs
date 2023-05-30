@@ -18,7 +18,7 @@ public abstract class Weapon : MonoBehaviour
     public Sprite Icon => _icon;
     public bool IsBuyed => _isBuyed;
 
-    public abstract void StartShoting(Transform shootPoint, float shootingTime);
+    public abstract void StartShoting(Transform shootPoint, float triggerTime);
     public abstract void StopShooting();
     public abstract void Reset();
 

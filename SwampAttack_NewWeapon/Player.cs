@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            _currentWeapon.StopShooting(Time.time); 
+            _currentWeapon.StopShooting(); 
         }
     }
 

@@ -5,16 +5,16 @@ using UnityEngine;
 public class Pistol : Weapon
 {
 
-    public override void StartShoting(Transform shootPoint, float shootingTime)
+    public override void StartShoting(Transform shootPoint, float triggerTime)
     {
-        if (shootingTime < Delay) 
+        if (triggerTime < Delay) 
         {
-            shootingTime += Delay;
+            triggerTime += Delay;
         }
 
-        if (IsCanShoot && shootingTime - ShootTime >= Delay)
+        if (IsCanShoot && triggerTime - ShootTime >= Delay)
         {
-            ShootTime = shootingTime;
+            ShootTime = triggerTime;
             Instantiate(Bullet, shootPoint.position, Quaternion.identity);
             IsCanShoot = false;
         }

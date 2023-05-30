@@ -9,17 +9,17 @@ public class Uzi : Weapon
         ShootTime = 0;
     }
 
-    public override void StartShoting(Transform shootPoint, float shootingTime)
+    public override void StartShoting(Transform shootPoint, float triggerTime)
     {
-        if (shootingTime < Delay)
+        if (triggerTime < Delay)
         {
-            shootingTime += Delay;
+            triggerTime += Delay;
         }
 
-        if (shootingTime - ShootTime >= Delay)
+        if (triggerTime - ShootTime >= Delay)
         {
             Instantiate(Bullet, shootPoint.position, Quaternion.identity);
-            ShootTime = shootingTime;
+            ShootTime = triggerTime;
         }
     }
 
