@@ -4,31 +4,28 @@ using UnityEngine;
 
 public class Pistol : Weapon
 {
-    private bool _isCanShoot;
-    private float _shootTime;
-
-    public override void Shot(Transform shootPoint, float shootingTime)
+    public override void StartShoting(Transform shootPoint, float shootingTime)
     {
 
-        if (_isCanShoot)
+        if (IsCanShoot)
         {
-            _shootTime = shootingTime;
+            ShootTime = shootingTime;
             Instantiate(Bullet, shootPoint.position, Quaternion.identity);
-            _isCanShoot = false;
+            IsCanShoot = false;
         }
     }
 
-    public override void StopShot(float stopShootingTime)
+    public override void StopShooting(float stopShootingTime)
     {
-        if (stopShootingTime - _shootTime >= _delay)
+        if (stopShootingTime - ShootTime >= Delay)
         {
-            _isCanShoot = true;
+            IsCanShoot = true;
         }
     }
 
     public override void Reset()
     {
-        _shootTime = 0;
-        _isCanShoot = true;
+        ShootTime = 0;
+        IsCanShoot = true;
     }
 }
